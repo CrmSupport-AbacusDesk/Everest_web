@@ -74,6 +74,7 @@
                             </div>
                         </div>
                         <div class="row mb0">
+
                             <div class="col s3">
                                 <div class="control-field">
                                     <mat-form-field class="cs-input">
@@ -81,7 +82,22 @@
                                     </mat-form-field>  
                                 </div>
                             </div>
+                       
+                       
+                        <div class="row mb0">
+                            <div class="col s3">
+                                <div class="control-field">
+                                    <mat-form-field class="cs-input">
+                                        <input matInput placeholder="Anniversary Points" (keypress)="number($event)" name="anniversary_points" [(ngModel)]="refer.anniversary_points">
+                                    </mat-form-field>  
+                                </div>
+                            </div>
                         </div>
+                       
+                        </div>
+
+
+                       
                     </div>
                 </div>
             </div>

@@ -30,7 +30,7 @@
                                         </mat-form-field>  
                                     </div>
                                 </div>
-                                <div class="col s3">
+                                <div class="col s2">
                                     <div class="control-field">
                                         <mat-form-field class="cs-input">
                                             <input placeholder="D.O.B" class="h46" [(ngModel)]="karigarform.dob" (click)="openDatePicker(picker)" [max]="date1" name="dob" matInput  [matDatepicker]="picker" required readonly>
@@ -39,7 +39,16 @@
                                         </mat-form-field>  
                                     </div>
                                 </div>
-                                <div class="col s3">
+                                <div class="col s2">
+                                    <div class="control-field">
+                                        <mat-form-field class="cs-input">
+                                            <input placeholder="Date of Anniversary" class="h46" [(ngModel)]="karigarform.doa" (click)="openDatePicker(picker1)" [max]="date1" name="doa" matInput  [matDatepicker]="picker1">
+                                            <mat-datepicker-toggle matSuffix [for]="picker1" ></mat-datepicker-toggle>
+                                            <mat-datepicker #picker1></mat-datepicker>
+                                        </mat-form-field>  
+                                    </div>
+                                </div>
+                                <div class="col s2">
                                     <div class="control-field">
                                         <mat-form-field class="cs-input">
                                             <input matInput placeholder="Mobile No." (keypress)="numeric_Number($event)" name="mobile_no" [(ngModel)] = "karigarform.mobile_no" #mobile_no="ngModel" maxlength="10" minlength="10" required >
