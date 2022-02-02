@@ -8497,3 +8497,28 @@ mat-icon
 {
     .h#{$i} {height: 1% * $i }
 }
+
+
+.sideModal {
+    position: fixed !important;
+    right: 0;
+    min-width: 450px;
+    width: 450px;
+    height: 100%;
+}
+
+.footer-fix-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: var(--white);
+    
+    a,button{
+        width: 100%;
+    }
+}
+.no-shadow{
+    box-shadow: none !important;
+}

@@ -24,7 +24,6 @@ export class SystemUserAddComponent implements OnInit {
       if(user_data.data.id){
         this.userForm = user_data.data;
       }
-      
     }
     
     ngOnInit() {
