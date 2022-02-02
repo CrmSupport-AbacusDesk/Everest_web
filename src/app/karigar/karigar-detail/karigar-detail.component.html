@@ -78,7 +78,10 @@
                                                 </div>
                                                 <div class="right-cont">
                                                     <p>Date of Anniversary</p>
-                                                    <span>{{getData.doa  | date : 'dd MMM yyyy'}}</span>
+                                                    
+                                                    <span *ngIf="getData.doa != null">{{getData.doa  | date : 'dd MMM yyyy'}}</span>
+                                                    <span *ngIf="getData.doa == null">N/A</span>
+
                                                 </div>
                                             </figure>
                                             

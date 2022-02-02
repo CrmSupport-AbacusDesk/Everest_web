@@ -65,14 +65,14 @@ export class TermConditionImageComponent implements OnInit {
           })
       }
       
-      if(this.hindiImage)
-      {
-          this.hindiImage.append("offer_id",this.offer.id);
-          this.db.fileData(this.hindiImage,"termHindiImage")
-          .subscribe(resp=>{
-              console.log(resp);
-          })
-      }
+      // if(this.hindiImage)
+      // {
+      //     this.hindiImage.append("offer_id",this.offer.id);
+      //     this.db.fileData(this.hindiImage,"termHindiImage")
+      //     .subscribe(resp=>{
+      //         console.log(resp);
+      //     })
+      // }
 
       this.dialogRef.close();
 
@@ -99,21 +99,21 @@ export class TermConditionImageComponent implements OnInit {
       this.englishImage.append("english_image",data.target.files[0],data.target.files[0].name);
     }
     
-    tmphin:any;
-    HindiImage(data)
-    {
-      let files = data.target.files[0];
-      if (files) 
-      {
-        let reader = new FileReader();
-        reader.onload = (e: any) => {
-          this.tmphin = e.target.result
-          console.log(this.tmphin);
-        }
-        reader.readAsDataURL(files);
-      }
-      this.hindiImage.append("hindi_image",data.target.files[0],data.target.files[0].name);
-    }
+    // tmphin:any;
+    // HindiImage(data)
+    // {
+    //   let files = data.target.files[0];
+    //   if (files) 
+    //   {
+    //     let reader = new FileReader();
+    //     reader.onload = (e: any) => {
+    //       this.tmphin = e.target.result
+    //       console.log(this.tmphin);
+    //     }
+    //     reader.readAsDataURL(files);
+    //   }
+    //   this.hindiImage.append("hindi_image",data.target.files[0],data.target.files[0].name);
+    // }
     
     
   }

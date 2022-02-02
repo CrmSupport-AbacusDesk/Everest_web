@@ -1,3 +1,8 @@
+import { SystemUserAddComponent } from './slider/system-user/system-user-add/system-user-add.component';
+import { SystemUserListComponent } from './slider/system-user/system-user-list/system-user-list.component';
+
+
+
 import { ConvertArray } from './_Pipes/ConvertArray.pipe';
 import { StrReplace } from './_Pipes/StrReplace.pipe';
 import { Crypto } from './_Pipes/Crypto.pipe';
@@ -15,8 +20,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxHmCarouselModule } from 'ngx-hm-carousel';
 import 'hammerjs';
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule, Component } from '@angular/core';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatFormFieldModule, MatInputModule, MatExpansionModule, MatProgressBarModule} from '@angular/material';
 import {AppComponent} from './app.component';
@@ -109,6 +114,8 @@ import { ContractorListComponent } from './contractor/contractor-list/contractor
 import { ContractorSatusModalComponent } from './contractor/contractor-satus-modal/contractor-satus-modal.component';
 import { ChangeTypeModalComponent } from './change-type-modal/change-type-modal.component';
 import { ProjectListComponent } from './project/project-list/project-list.component';
+import { SupportComponent } from './support/support.component';
+
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
@@ -163,9 +170,12 @@ const routes: Routes = [
   {path: 'notification-history', component:NotificationHistoryComponent , canActivate: [AuthGuard] },
   {path: 'message-history', component:MessageHistoryComponent , canActivate: [AuthGuard] },
   {path: 'project', component:ProjectListComponent , canActivate: [AuthGuard] },
-
+  {path: 'support', component:SupportComponent , canActivate: [AuthGuard] },
   {path: 'add-coupon', component:AddCouponCodesComponent , canActivate: [AuthGuard] },
   {path: 'contractor-list', component:ContractorListComponent , canActivate: [AuthGuard] },
+
+  {path: 'user-list', component:SystemUserListComponent , canActivate: [AuthGuard] },
+ 
 
   { path: '**', redirectTo: ''},
 ];
@@ -259,7 +269,11 @@ const routes: Routes = [
     ContractorListComponent,
     ContractorSatusModalComponent,
     ChangeTypeModalComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    SupportComponent,
+    SystemUserListComponent,
+    SystemUserAddComponent,
+  
   ],
   imports: [
     HttpClientModule,
