@@ -141,6 +141,7 @@
                     </div>
                 </div>
                 
+                
                 <div class="uploade-image">
                     <ul>
                         <li *ngFor="let row of selected_image; let i=index" [ngClass]="{'active':category.profile_selected == row.id }">
@@ -150,10 +151,9 @@
                                 <i class="material-icons crose-icon " (click)="deleteProductImage(i,row)">clear</i>
                             </span>									
                         </li>
-                        <!-- *ngIf="hideAddImage==false" -->
-                        <li  class="add-bg-1" *ngIf="selected_image.length < 1">
+                        <li class="add-bg-1">
                             <label>
-                                <input type="file" (change)="onUploadChange($event)" style="display:none;" accept=".png, .jpg, .jpeg, .pdf" required />
+                                <input type="file" (change)="onUploadChange($event)" style="display:none;" accept=".png, .jpg, .jpeg, .pdf" required multiple />
                                 <div class="other">
                                     <i class="material-icons">add</i>
                                 </div>
