@@ -63,9 +63,14 @@
                     
                     <mat-checkbox class="check-list" name="karigar" [(ngModel)]="userForm.karigar"
                     #karigar="ngModel">
-                    Karigar
+                    Carpenter
                   </mat-checkbox>
                   
+                  <mat-checkbox class="check-list" name="project" [(ngModel)]="userForm.project"
+                  #project="ngModel">
+                  Project
+                </mat-checkbox>
+
                   <mat-checkbox class="check-list" name="coupon_code" [(ngModel)]="userForm.coupon_code"
                   #coupon_code="ngModel">
                   Coupon codes
@@ -75,6 +80,11 @@
                 Feedback
               </mat-checkbox>
               
+              <mat-checkbox class="check-list" name="support" [(ngModel)]="userForm.support"
+                #support="ngModel">
+                Support
+              </mat-checkbox>
+
               <mat-checkbox class="check-list" name="faq" [(ngModel)]="userForm.faq" #faq="ngModel">
                 FAQ
               </mat-checkbox>

@@ -1,5 +1,5 @@
-import { SystemUserAddComponent } from './slider/system-user/system-user-add/system-user-add.component';
-import { SystemUserListComponent } from './slider/system-user/system-user-list/system-user-list.component';
+import { SystemUserAddComponent } from './system-user/system-user-add/system-user-add.component';
+import { SystemUserListComponent } from './system-user/system-user-list/system-user-list.component';
 
 
 
@@ -334,7 +334,8 @@ const routes: Routes = [
     SendNotificationComponent,
     AssignRelatedProductsComponent,
     ContractorSatusModalComponent,
-    ChangeTypeModalComponent
+    ChangeTypeModalComponent,
+    SystemUserAddComponent
   ],
   
   exports: [
