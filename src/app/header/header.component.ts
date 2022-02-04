@@ -10,7 +10,9 @@ import {DialogComponent} from './../dialog/dialog.component';
 })
 export class HeaderComponent implements OnInit {
     
-    constructor(private renderer: Renderer2, private router: Router, public ses: SessionStorage, public db: DatabaseService , public dialog: DialogComponent) { }
+    constructor(private renderer: Renderer2, private router: Router, public ses: SessionStorage, public db: DatabaseService , public dialog: DialogComponent) {
+        
+     }
     
     ngOnInit() {
         this.get_abacus_con();        

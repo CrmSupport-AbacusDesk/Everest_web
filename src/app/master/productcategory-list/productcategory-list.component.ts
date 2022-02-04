@@ -153,7 +153,7 @@ export class ProductcategoryListComponent implements OnInit {
     
     selected_image :any = [];
     
-    onUploadChange(data: any,id)
+    onUploadChange(data: any)
     {            
         for(let i=0;i<data.target.files.length;i++)
         {

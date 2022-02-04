@@ -119,34 +119,22 @@ export class ProductsListComponent implements OnInit {
 
   catdata: any = "";
   addimage = false;
-  editProduct(id, index) {
-    this.addimage = false;
-    this.addImageIcon = true;
-    this.productForm = this.products.filter((x) => x.id == id)[0];
-    console.log("====================================");
-    console.log(this.productForm);
-    console.log("====================================");
-
+  editProduct(id,index){
+        
+    this.productForm = this.products.filter( x => x.id==id)[0];
     this.productForm.profile_selected = parseInt(this.productForm.profile);
-    console.log(this.productForm);
-    // if(this.productForm.new_arrival==1){
-    //     this.productForm.new_arrival.check;
-    // }
-    console.log(this.productForm);
-    this.selected_image = [];
-    this.productForm.category_id = this.productForm.master_category_id;
+    
+    this.selected_image=[];
+    this.productForm.category_id=this.productForm.master_category_id;
     this.productForm.profile_selected = 0;
-
-    for (let i = 0; i < this.productForm.image.length; i++) {
-      if (parseInt(this.productForm.image[i].profile) == 1)
-        this.productForm.profile_selected = this.productForm.image[i].id;
-      this.selected_image.push({
-        image: this.productForm.image[i].image_name,
-        id: this.productForm.image[i].id,
-      });
+    
+    for(let i=0; i<this.productForm.image.length ;i++)
+    {
+        if( parseInt( this.productForm.image[i].profile ) == 1  )
+        this.productForm.profile_selected = this.productForm.image[i].image_id;
+        this.selected_image.push({"image":this.productForm.image[i].image_name,"id":this.productForm.image[i].image_id} );
     }
-    console.log(this.productForm.profile_selected);
-  }
+}
   toggle: any;
   saveProduct() {
     this.savingData = true;
@@ -194,70 +182,46 @@ export class ProductsListComponent implements OnInit {
       });
   }
 
-  selected_image: any = [];
-  onUploadChange(data: any) {
-    for (let i = 0; i < data.target.files.length; i++) {
-      let files = data.target.files[i];
-      if (files) {
-        let reader = new FileReader();
-        reader.onload = (e: any) => {
-          this.selected_image.push({ image: e.target.result });
-          if (this.selected_image.length == 0) {
-            this.addImageIcon = true;
-          } else {
-            this.addImageIcon = false;
-          }
-        };
-        reader.readAsDataURL(files);
-      }
-      this.image.append(
-        "" + i,
-        data.target.files[i],
-        data.target.files[i].name
-      );
+  selected_image :any = [];
+    onUploadChange(data: any)
+    {
+        for(let i=0;i<data.target.files.length;i++)
+        {
+            let files = data.target.files[i];
+            if (files) 
+            {
+                let reader = new FileReader();
+                reader.onload = (e: any) => {
+                    this.selected_image.push({"image":e.target.result});
+                }
+                reader.readAsDataURL(files);
+            }
+            this.image.append(""+i,data.target.files[i],data.target.files[i].name);
+        }
     }
-  }
 
-  // deleteProductImage(index,data)
-  // {
-  //     this.dialog.delete("Are you sure ?")
-  //     .then(resp=>{
-  //         console.log(resp);
-  //         if(resp)
-  //         {
-  //             if(data.id){
-  //                 this.db.post_rqst({"data":data},"master/delete_prod_image")
-  //                 .subscribe(resp=>{
-  //                     console.log(resp);
-  //                     this.dialog.success("Deleted!");
-  //                     this.selected_image.splice(index,1);
-  //                     if(this.selected_image.length==0)
-  //                     {
-  //                         this.addImageIcon=true;
-  //                         console.log("truee");
-  //                     }
-  //                     else{
-  //                         this.addImageIcon=false;
-  //                     }
-  //                 });
-  //             }
-  //             else{
-  //                 this.dialog.success("Deleted!");
-  //                 this.selected_image.splice(index,1);
-  //                 if(this.selected_image.length==0)
-  //                 {
-  //                     this.addImageIcon=true;
-  //                     console.log("truee");
-  //                 }
-  //                 else{
-  //                     this.addImageIcon=false;
-  //                 }
-  //             }
-  //         }
-  //     })
+
+  // deleteProductImage(index) {
+  //   this.selected_image.splice(index, 1);
   // }
-  deleteProductImage(index) {
-    this.selected_image.splice(index, 1);
+
+  deleteProductImage(index,data)
+  {
+    console.log(data);
+    
+      this.dialog.delete("Are you sure ?")
+      .then(resp=>{
+          console.log(resp);
+          if(resp)
+          {
+              this.db.post_rqst({"data":data},"master/delete_prod_image")
+              .subscribe(resp=>{
+                  console.log(resp);
+                  this.dialog.success("Deleted!");
+                  this.selected_image.splice(index,1)
+              });
+          }
+      })
   }
   active: any = "";
 
@@ -270,10 +234,10 @@ export class ProductsListComponent implements OnInit {
   }
 
   addProduct() {
-    this.addimage = true;
+    // this.addimage = true;
     this.selected_image = [];
     this.productForm = {};
-    this.addImageIcon = true;
+    // this.addImageIcon = true;
   }
   removeImage() {
     this.selected_image = [];

@@ -51,6 +51,7 @@ export class DashboardComponent implements OnInit {
     
     constructor(public db: DatabaseService, private router:Router) 
     {
+        console.log(this.db.datauser.id);
         this.get_counts();
         this.get_super_karigars();
         this.get_super_dealers();
@@ -60,6 +61,8 @@ export class DashboardComponent implements OnInit {
         this.state_wise_distributor();
         this.coupon_code_graph();
         this.get_scan_coupon_data();
+
+       
     }
     
     ngOnInit() 

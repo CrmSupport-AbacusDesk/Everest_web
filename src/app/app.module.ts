@@ -115,6 +115,7 @@ import { ContractorSatusModalComponent } from './contractor/contractor-satus-mod
 import { ChangeTypeModalComponent } from './change-type-modal/change-type-modal.component';
 import { ProjectListComponent } from './project/project-list/project-list.component';
 import { SupportComponent } from './support/support.component';
+import { MasterTabComponent } from './master/master-tab/master-tab.component';
 
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -273,6 +274,7 @@ const routes: Routes = [
     SupportComponent,
     SystemUserListComponent,
     SystemUserAddComponent,
+    MasterTabComponent,
   
   ],
   imports: [

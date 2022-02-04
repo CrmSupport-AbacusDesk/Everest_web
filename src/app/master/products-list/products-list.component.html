@@ -41,29 +41,7 @@
         </div>
     </div>
     <div class="container-outer tab-container">
-        <div class="master-tab">
-            <ul>
-                <li routerLink="/productcategory-list" routerLinkActive="active"><a>Product Category</a></li>
-                <li routerLink="/products-list" routerLinkActive="active"><a>Products</a></li>
-                <!-- <li routerLink="/demo-karigar-list" routerLinkActive="active"><a>Demo Karigar</a></li> -->
-                <!-- <li routerLink="/news-list" routerLinkActive="active"><a>News</a></li> -->
-                <li routerLink="/video-list" routerLinkActive="active"><a>Videos</a></li>
-                <li routerLink="/login-banner-list" routerLinkActive="active"><a>Login Banner</a></li>
-                <!-- <li routerLink="/sales-executive-list" routerLinkActive="active"><a>Sales Executive</a></li> -->
-                <!-- <li routerLink="/distributor-list" routerLinkActive="active"><a>Distributor</a></li> -->
-                <!-- <li routerLink="/karigar-data" routerLinkActive="active"><a>Karigar Data</a></li> -->
-                <li routerLink="/daily-coupon-access" routerLinkActive="active"><a>Daily Coupon Access</a></li>
-                <li routerLink="/company-profile" routerLinkActive="active"><a>Company Profile</a></li>
-                <li routerLink="/referral-master" routerLinkActive="active"><a>Points Master</a></li>
-                <li routerLink="/app-banner-list" routerLinkActive="active"><a>App Banner</a></li>
-                <li routerLink="/gifts" routerLinkActive="active"><a>Master Gift</a></li>
-                <li routerLink="/user-list" routerLinkActive="active"><a>System User</a></li>
-
-
-                <!-- <li routerLink="/message-history" routerLinkActive="active"><a>Message History</a></li> -->
-                <!-- <li routerLink="/notification-history" routerLinkActive="active"><a>Notification History</a></li> -->
-            </ul>
-        </div>
+      <app-master-tab></app-master-tab>
         <div class="row">
             <div class="css-table left-right-15">
                 <div class="sticky-header">
@@ -307,6 +285,28 @@
                     </div>
                 </div>
 
+
+                <div class="uploade-image">
+                    <ul>
+                        <li *ngFor="let row of selected_image; let i=index" [ngClass]="{'active': productForm.profile_selected == row.id}">
+                            <img src="{{row.id ? uploadurl+row.image : row.image}}">
+                            <span class="cancel-icon">
+                                <i class="material-icons check-icon"  (click)="ProductProfile(i,row.id)">done</i>
+                                <i class="material-icons crose-icon" (click)="deleteProductImage(i,row.id)">clear</i>
+                            </span>
+                        </li>
+                        <li class="add-bg-1">
+                            <label>
+                                <input type="file" (change)="onUploadChange($event)" style="display:none;" accept=".png, .jpg, .jpeg," multiple required />
+                                <div class="other">
+                                    <i class="material-icons">add</i>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                
+
                 <!-- <div class="uploade-image">
 
                     <ul>
@@ -336,7 +336,7 @@
                         </li>
                     </ul>
                 </div> -->
-                <div class="uploade-image">
+                <!-- <div class="uploade-image">
                     <h4>Upload Image</h4>
                     <ul *ngIf="productForm.image?.length > 0">
                         <li *ngFor="let img of productForm.image; let i=index">
@@ -387,7 +387,7 @@
                         </li>
                     </ul>
 
-                </div>
+                </div> -->
 
 
                 <div class="save btn-save mt90" [ngClass]="{loading: savingData}">
