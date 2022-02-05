@@ -27,9 +27,9 @@
                       </a>
                   </li>
               </ul>
-              <div class="master-btn pl15">
+              <!-- <div class="master-btn pl15">
                 <button  mat-raised-button color="primary" (click)="openDatepicker()">Date Filter</button>
-            </div>
+            </div> -->
           </div>
           
           <div class="refresh-btn">
@@ -144,10 +144,13 @@
                       <td class="w100 blue text-center">
                         <a (click)="changeStatus(i, val.id, val.support_status )" *ngIf="val.status !='Reject'">Status</a>
                       </td>
-                     <td *ngIf='val.document' class="w100 text-center" [ngClass]="{'blue':val.document}"><a (click)="!val.document?'':openDialog( val.document,'test16')">View</a></td>
-                     <td *ngIf='!val.document' class="w100 text-center" [ngClass]="{'blue':val.document}"><a (click)="!val.document?'':openDialog( val.document,'test16')">----</a></td>
-
-
+                     <td class="w100 text-center" >
+                        <a class="link" *ngFor="let row of val.document" >
+                            <img src="{{uploadurl + row.document_name}}" (click)="openDialog(row.document_name,'complaint')">
+                        </a>
+                         <!-- <a (click)="!val.document?'':openDialog( val.document,'test16')">View</a> -->
+                        </td>
+                     <!-- <td *ngIf='!val.document' class="w100 text-center" [ngClass]="{'blue':val.document}"><a (click)="!val.document?'':openDialog( val.document,'test16')">----</a></td> -->
                   </tr>
               </table>
           </div>
