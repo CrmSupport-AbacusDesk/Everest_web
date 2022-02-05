@@ -33,9 +33,13 @@ export class SupportComponent implements OnInit {
   all_count:any;
   done_count:any;
   pending_count:any;
+  uploadurl: any = "";
+
 
 @ViewChild(MatPaginator) paginator:MatPaginator;
-  constructor(public db:DatabaseService, private route:ActivatedRoute, private router: Router, public ses:SessionStorage, public dialog: DialogComponent, public alrt:MatDialog ) { }
+  constructor(public db:DatabaseService, private route:ActivatedRoute, private router: Router, public ses:SessionStorage, public dialog: DialogComponent, public alrt:MatDialog ) { 
+    this.uploadurl = this.db.uploadUrl;
+  }
 
   ngOnInit() {
     this.getSupportList('');
@@ -131,11 +135,11 @@ last1()
   {
       picker.open();
   }
-  openDialog(id ,string ) {
+  openDialog(image ,string ) {
     const dialogRef = this.alrt.open(ProductImageModuleComponent,{
         data: {
-            'id' : id,
-            'mode' : string,
+            'image' : image,
+            'complaint' : string,
         }
     });
     dialogRef.afterClosed().subscribe(result => {

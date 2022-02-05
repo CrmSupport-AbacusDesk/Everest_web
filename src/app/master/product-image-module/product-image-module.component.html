@@ -1,6 +1,4 @@
 <div class="all-modules">
-    
-    
     <mat-dialog-content class="mat-typography">
         
         <div class="gift-box product-img " *ngIf="part_data.mode == 'test1'">  
@@ -105,6 +103,13 @@
         <div class="gift-box product-img " *ngIf="projectImg.siteImg == 'siteImage'">  
             <div class="form-area">
                 <img src="{{uploadUrl2 + projectImg.imgurl}}">
+            </div>
+            <button mat-button [mat-dialog-close]="false" ><i class="material-icons">clear</i></button>
+        </div>
+
+        <div class="gift-box product-img " *ngIf="lead_data.complaint == 'complaint'">  
+            <div class="form-area">
+                <img src="{{uploadUrl + lead_data.image}}">
             </div>
             <button mat-button [mat-dialog-close]="false" ><i class="material-icons">clear</i></button>
         </div>
