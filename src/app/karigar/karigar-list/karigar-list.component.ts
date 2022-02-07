@@ -291,22 +291,36 @@ export class KarigarListComponent implements OnInit {
         })
     }
 
-    karigarsSatus(id,status)
-    {
-        const dialogRef = this.alrt.open(ChangeStatusComponent,{
-            width: '500px',
-            // height:'500px',
+    // karigarsSatus(id,status)
+    // {
+    //     const dialogRef = this.alrt.open(ChangeStatusComponent,{
+    //         width: '500px',
+    //         // height:'500px',
             
-            data: {
-                'id' : id,
-                'status' : status,
-                'target' : 1,
-            }
-        });
-        dialogRef.afterClosed().subscribe(result => {
-            if( result ){
+    //         data: {
+    //             'id' : id,
+    //             'status' : status,
+    //             'target' : 1,
+    //         }
+    //     });
+    //     dialogRef.afterClosed().subscribe(result => {
+    //         if( result ){
+    //             this.getKarigarList('');
+    //         }
+    //     });
+    // }
+
+
+    karigarsSatus(id, status)
+    {
+        this.dialog.statusAlert('karigar').then((result) => {
+            if(result) {
+            this.db.post_rqst({ 'status' : status, 'id' :id }, 'karigar/karigarStatus')
+            .subscribe(d => {
+                console.log(d);
                 this.getKarigarList('');
-            }
+            });
+        }
         });
     }
 }
