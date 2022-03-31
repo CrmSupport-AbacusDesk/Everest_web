@@ -1698,7 +1698,6 @@ section::-webkit-scrollbar-track
         line-height: 21px;
         span
         {
-            color: var(--white);
             font-size: 12px;
         }
     }
@@ -2926,7 +2925,6 @@ header
                 margin: auto;
                 min-width: 150px;
                 justify-content: center;
-                background: var(--white);
                 padding: 5px;
                 
                 img
@@ -3019,7 +3017,6 @@ header
                             &.active, &:hover
                             {
                                 background: var(--primary);
-                                color: var(--white);
                             }
                         }
                     }
@@ -6241,10 +6238,7 @@ button,a
                 background: var(--primary);
                 position:relative;
                 
-                a
-                {
-                    color: var(--white);
-                }
+               
                 
                 &:after
                 {
@@ -6286,7 +6280,7 @@ button,a
         
         .mat-button-wrapper{padding: 14px 0px;}
         
-        mat-icon{color: var(--white);}
+        // mat-icon{color: var(--white);}
         
         &.mat-fab {
             i{
@@ -6295,7 +6289,6 @@ button,a
         }
         
         span{
-            color: var(--white);
             display: flex;
             align-items: center;
             font-size: 12px;
