@@ -190,7 +190,7 @@
                                     <div class="option-field">
                                         <div class="control-field">
                                             <mat-form-field class="cs-input">
-                                                <input matInput placeholder="Aadhaar" name="document_no" [(ngModel)] = "karigarform.document_no" #document_no="ngModel" (keypress)="numeric_Number($event)" maxlength="12" minlength="12"
+                                                <input matInput placeholder="Aadhaar" name="document_no" [(ngModel)] = "karigarform.document_no" #document_no="ngModel" (keypress)="numeric_Number($event)" maxlength="14" minlength="14"
                                                 >
                                             </mat-form-field>  
                                         </div>
@@ -250,6 +250,34 @@
                                     <div class="control-field">
                                         <mat-form-field class="cs-input">
                                             <input matInput placeholder="Mobile No." name="parent_counter_mobile" [(ngModel)] = "karigarform.parent_counter_mobile" #parent_counter_mobile="ngModel"  maxlength="10" minlength="10" (keypress)="numeric_Number($event)" required>
+                                        </mat-form-field>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s8 ">
+                        <div class="sprate-box ">
+                            <div class="full-offer">
+                                <div class="top-heading">
+                                    <h2>Employee INFORMATION</h2>
+                                </div>
+                            </div>
+                            
+                            <div class="row option-field">
+                                <div class="col s6">
+                                    <div class="control-field">
+                                        <mat-form-field class="cs-input">
+                                            <input matInput placeholder="Employee Name" name="sales_person_name" [(ngModel)] = "karigarform.sales_person_name" #sales_person_name="ngModel" >
+                                        </mat-form-field>  
+                                    </div>
+                                </div>
+                               
+                                <div class="col s6">
+                                    <div class="control-field">
+                                        <mat-form-field class="cs-input">
+                                            <input matInput placeholder="Employee Mobile No." name="sales_person_mobile_no" [(ngModel)] = "karigarform.sales_person_mobile_no" #sales_person_mobile_no="ngModel"  maxlength="10" minlength="10" (keypress)="numeric_Number($event)" >
                                         </mat-form-field>  
                                     </div>
                                 </div>
