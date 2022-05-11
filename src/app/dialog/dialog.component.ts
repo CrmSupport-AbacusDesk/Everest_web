@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material';
 import Swal from 'sweetalert2';
+import { AddTransferDetailComponent } from '../add-transfer-detail/add-transfer-detail.component';
 
 @Injectable({ providedIn: 'root' })
 
@@ -9,6 +10,9 @@ import Swal from 'sweetalert2';
     templateUrl: './dialog.component.html',
 })
 export class DialogComponent implements OnInit {
+    open(AddTransferDetailComponent: AddTransferDetailComponent, arg1: { width: string; data: { id: any; status: any; }; }) {
+        throw new Error('Method not implemented.');
+    }
     horizontalPosition: MatSnackBarHorizontalPosition = 'start';
     verticalPosition: MatSnackBarVerticalPosition = 'bottom';
     constructor(private snacker: MatSnackBar) { }

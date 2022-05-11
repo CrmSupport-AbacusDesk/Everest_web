@@ -17,6 +17,12 @@
                             <!-- <div class="btn-align">
                                 <button class="back-btn" (click)="openBonusPoint()">BONUS POINTS</button>
                             </div> -->
+
+                             <div class="btn-align">
+                                 <button class="back-btn"  style="background-color: #3e8181; color: white;" (click)="openAddCouponPoints()">
+                                        <i class="material-icons" style="font-size:18px;">add</i>
+                                        Add Points </button>
+                                        </div>
                         </div>
                         
                         <div class="detail-info pr0">
@@ -139,6 +145,9 @@
                                             </figure>
                                         </li>
                                     </ul>
+                                    <!-- <ul class="mt10 ml20">
+                                       
+                                    </ul> -->
                                     <ul *ngIf="getData.status == 'Reject'">
                                         <li>
                                             <p>Reason</p>

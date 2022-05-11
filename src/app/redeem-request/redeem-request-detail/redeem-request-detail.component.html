@@ -403,6 +403,39 @@
             </div>
           </div>
         </div>
+
+        <div class="sprate-box gift-offer ">
+          <div class="full-offer">
+            <div class="top-heading">
+              <h2>Payment Details</h2>
+              <!-- <button class="right" (click)="edittransfDetail(id)"><i class="material-icons">edit</i></button> -->
+              
+            </div>
+            <div class="detail-info pl0 pr0">
+            
+              <div class="basic-details">
+                <div class="profile-info">
+                  <ul>
+                    <li>
+                      <p>Payment Mode</p>
+                      <span>{{!getData.payment_method ? 'N/A' : getData.payment_method}}</span>
+                    </li>
+                    
+                    <li>
+                      <p>Transaction Id</p>
+                      <span>{{!getData.transaction_id ? 'N/A' : getData.transaction_id}}</span>
+                    </li>
+
+                    <li>
+                      <p>Payment Date</p>
+                      <span>{{getData.payment_date != '0000-00-00 00:00:00' ? (getData.payment_date | date:'d MMMM y') : 'N/A'}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   
