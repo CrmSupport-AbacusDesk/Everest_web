@@ -1,0 +1,46 @@
+<div class="gift-box">
+  <div class="gift-heading">
+      <p>Add Transaction Details </p>
+      <div class="close-icon">
+          <button mat-button mat-dialog-close ><i class="material-icons">clear</i></button>
+      </div>
+  </div>
+  <!-- *ngIf='!model_data.support' -->
+  <div class="trans pt15" >
+      <form name="offer" (ngSubmit)="f.form.valid && addTransDetail() " #f="ngForm" novalidate autocomplete="off">
+        <div class="row mb0 option-field">
+              <div class="control-field">
+                  <mat-form-field class="cs-input">
+                      <input matInput placeholder="Payment Mode" name="payment_method" [(ngModel)] = "Redeemdetail.payment_method" #payment_method="ngModel" >
+                  </mat-form-field>  
+              </div>
+
+            <div class="control-field">
+                <mat-form-field class="cs-input">
+                    <input matInput placeholder="Transaction Id " name="transaction_id" [(ngModel)] = "Redeemdetail.transaction_id" #transaction_id="ngModel">
+                </mat-form-field>  
+            </div>
+        
+
+       
+          <div class="control-field">
+            <mat-form-field class="cs-input">
+                <input matInput [matDatepicker]="picker1" placeholder="Payment Date" name="payment_date"   [(ngModel)]="Redeemdetail.payment_date">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+              <!-- <mat-form-field class="cs-input">
+                <input placeholder="Payment Date" class="h46" [(ngModel)]="Redeemdetail.payment_date" (click)="openDatePicker(picker)" [max]="date1" name="payment_date" matInput  [matDatepicker]="picker" >
+                <mat-datepicker-toggle matSuffix [for]="picker1" ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>   -->
+          </div>
+      
+       </div>
+          
+          <div class="save mt15">
+              <button mat-button class="mb0" type="submit"  (click)="addTransDetail()" >SAVE</button>
+          </div>
+      </form>
+  </div>
+  

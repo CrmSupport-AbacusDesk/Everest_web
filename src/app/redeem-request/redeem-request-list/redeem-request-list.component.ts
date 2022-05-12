@@ -1,3 +1,4 @@
+import { AddTransferDetailComponent } from './../../add-transfer-detail/add-transfer-detail.component';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import {DatabaseService} from '../../_services/DatabaseService';
@@ -37,6 +38,7 @@ export class RedeemRequestListComponent implements OnInit {
     constructor(public db: DatabaseService, private route: ActivatedRoute, private router: Router, public ses: SessionStorage,public dialog: DialogComponent, public alrt:MatDialog ) {}
     
     ngOnInit() {
+
         this.route.params
         .subscribe((resp)=>
         {
@@ -170,7 +172,25 @@ export class RedeemRequestListComponent implements OnInit {
             }
         });
     }
-    
+    addTransferStatus(id)
+    {
+        console.log(id);
+        
+        const dialogRef = this.alrt.open(AddTransferDetailComponent,{
+            width: '500px',
+            // height:'500px',
+            
+            data: {
+                'id' : id
+                
+            }
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if( result ){
+                this.getReedamList('');
+            }
+        });
+    }
     
     shippedModel(i, type){
         console.log('====================================');

@@ -1,5 +1,6 @@
+// import { AddTransferDetailComponent } from './../../add-transfer-detail/add-transfer-detail.component';
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import {DatabaseService} from '../../_services/DatabaseService';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DialogComponent} from '../../dialog/dialog.component';
@@ -58,6 +59,22 @@ export class RedeemRequestDetailComponent implements OnInit {
         this.getReedamDetails();
       });
     }
+
+
+  //   edittransfDetail(id) {
+  //     console.log(id);
+      
+  //     const dialog = this.alrt.open(AddTransferDetailComponent,{
+  //         width: '800px',
+  //         data: {
+  //             'id' : id,
+             
+  //         }
+  //     });
+  //     dialog.afterClosed().subscribe( r => {
+  //         // if( r ) this.addTransDetail();
+  //     });
+  // }
 
     redeem_coupon:any=[];
     getRedeemList() 

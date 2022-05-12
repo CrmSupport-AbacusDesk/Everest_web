@@ -3895,6 +3895,7 @@ header
 
 
 
+
 // add-offer
 .offer-container
 {
@@ -4324,6 +4325,7 @@ header
     }
     
 }
+
 
 
 .sprate-box
@@ -5953,9 +5955,19 @@ footer
     }
 }
 
+
 .excel-btn
 {
     position: fixed;
+    bottom: 58px;
+    right: 15px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.excel-btn
+{
+    position: right;
     cursor: pointer;
     bottom: 58px;
     right: 15px;

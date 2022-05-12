@@ -116,6 +116,8 @@ import { ChangeTypeModalComponent } from './change-type-modal/change-type-modal.
 import { ProjectListComponent } from './project/project-list/project-list.component';
 import { SupportComponent } from './support/support.component';
 import { MasterTabComponent } from './master/master-tab/master-tab.component';
+import { AddTransferDetailComponent } from './add-transfer-detail/add-transfer-detail.component';
+import { AddCouponPointComponent } from './add-coupon-point/add-coupon-point.component';
 
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -275,6 +277,8 @@ const routes: Routes = [
     SystemUserListComponent,
     SystemUserAddComponent,
     MasterTabComponent,
+    AddTransferDetailComponent,
+    AddCouponPointComponent,
   
   ],
   imports: [
@@ -333,11 +337,15 @@ const routes: Routes = [
     ImportcodeComponent,
     SendmessageComponent,
     BonusPointModelComponent,
+    AddTransferDetailComponent,
     SendNotificationComponent,
     AssignRelatedProductsComponent,
     ContractorSatusModalComponent,
     ChangeTypeModalComponent,
-    SystemUserAddComponent
+    SystemUserAddComponent,
+    AddCouponCodesComponent,
+    AddCouponPointComponent,
+
   ],
   
   exports: [

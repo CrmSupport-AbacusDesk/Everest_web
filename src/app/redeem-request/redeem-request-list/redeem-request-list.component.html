@@ -86,6 +86,7 @@
                             <th class="w85">Redeem Status</th>
                             <th class="w110 ">Gift Points Status</th>
                             <th class="w60">Action</th>
+                            <th class="w120"> Add Transfer Details</th>
                         </tr>
                     </table>
                 </div>
@@ -229,6 +230,7 @@
                                     <button mat-button class="go" (click)="getReedamList('')">Go</button>
                                 </div>
                             </th>
+                            <th class="w120"></th>
                         </tr>
                     </table>
                 </div>
@@ -289,7 +291,14 @@
                         </td>
                         <td class="w60 blue">
                             <a class="pointer" (click)="changeStatus(i, val.id, val.gift_status )" *ngIf="val.receive_status == '' && val.gift_status != 'Reject'  ">Status</a>
-                        </td>
+                           
+                        </td>  
+                        <!-- *ngIf=" val.transaction_id == ''  " -->
+                        <td class="w120">  <button   style="background-color: #3e8181;
+                            color: white;" (click)="addTransferStatus(val.id)"  > 
+                        <!-- <i class="material-icons" style="font-size:18px;">add</i> -->
+                        <p>Add Transfer Detail</p>
+                        </button></td>
                     </tr>
                 </table>
             </div>
@@ -312,7 +321,7 @@
     </div>
     
     
-    <div class="excel-btn"  (click)="exportRedeemList()" *ngIf="reedam.length">
+    <div class="excel-btn"  (click)="exportRedeemList()" *ngIf="reedam.length ">
         <div class="image-area">
             <a>
                 <img src="assets/excel.svg">

@@ -1,3 +1,4 @@
+import { AddCouponPointComponent } from './../../add-coupon-point/add-coupon-point.component';
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDatepicker} from '@angular/material';
 import {DatabaseService} from '../../_services/DatabaseService';
@@ -91,7 +92,25 @@ export class KarigarDetailComponent implements OnInit {
             }
         });
     }
-    
+    openAddCouponPoints = () =>
+    {
+            console.log('check coupon called');
+        const dialogRef = this.alrt.open(AddCouponPointComponent,{
+            width: '500px',
+            // height:'500px',
+            
+            data: {
+                'id' : this.karigar_id
+                
+            }
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            this.getKarigarDetails();
+            this.getScannedList();
+            this.getReedamList();
+        });
+    }
+
     
     
     coupandetail:any = [];

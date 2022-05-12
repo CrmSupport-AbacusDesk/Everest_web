@@ -17,6 +17,12 @@
                             <!-- <div class="btn-align">
                                 <button class="back-btn" (click)="openBonusPoint()">BONUS POINTS</button>
                             </div> -->
+
+                             <div class="btn-align">
+                                 <button class="back-btn"  style="background-color: #3e8181; color: white;" (click)="openAddCouponPoints()">
+                                        <i class="material-icons" style="font-size:18px;">add</i>
+                                        Add Points </button>
+                                        </div>
                         </div>
                         
                         <div class="detail-info pr0">
@@ -139,6 +145,9 @@
                                             </figure>
                                         </li>
                                     </ul>
+                                    <!-- <ul class="mt10 ml20">
+                                       
+                                    </ul> -->
                                     <ul *ngIf="getData.status == 'Reject'">
                                         <li>
                                             <p>Reason</p>
@@ -229,6 +238,31 @@
                                         <li>
                                             <p>Mobile No.</p>
                                             <span>{{!getData.parent_counter_mobile ? 'N/A' : getData.parent_counter_mobile}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sprate-box gift-offer mt15">
+                    <div class="full-offer">
+                        <div class="top-heading">
+                            <h2> EMPLOYEE DETAIL</h2>
+                        </div>
+                        <div class="detail-info pl0 pr0">
+                            
+                            <div class="basic-details">
+                                <div class="profile-info">
+                                    <ul>
+                                        <li>
+                                            <p>Employee Name</p>
+                                            <span>{{!getData.sales_person_name?'N/A': getData.sales_person_name | titlecase }}</span>
+                                        </li>
+                                        <li>
+                                            <p>Employee Mobile No.</p>
+                                            <span>{{!getData.sales_person_mobile_no ? 'N/A' : getData.sales_person_mobile_no}}</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -613,11 +647,10 @@
                                 <table>
                                     <tr>
                                         <th class="w50">S No</th>
-                                        <th class="w100">Karigar Name</th>
-                                        <th class="w100">Mobile No.</th>
-                                        <th class="w150">State</th>
-                                        <th class="w100">District</th>
-                                        <th>Remarks</th>
+                                        <th class="w200">Date Created</th>
+                                        <th class="w100">Log Type</th>
+                                        <th class="w100">Points</th>
+                                        <th>Summary</th>
                                     </tr>
                                 </table>
                             </div>
@@ -627,11 +660,10 @@
                                 <table> 
                                     <tr  *ngFor="let val of referral_data; let i = index">
                                         <td class="w50">{{ i + 1 }}</td>
-                                        <td class="w100">{{val.first_name}}</td>
-                                        <td class="w100">{{val.mobile_no}}</td>
-                                        <td class="w150">{{val.state}}</td>
-                                        <td class="w100">{{val.district}}</td>
-                                        <td>{{val.remarks}}</td>
+                                        <td class="w200">{{ val.date_created | date: 'dd MMM yyyy' }}</td>
+                                        <td class="w100">{{val.log_type}}</td>
+                                        <td class="w100">{{val.points}}</td>
+                                        <td>{{val.summary}}</td>
                                     </tr>
                                 </table>
                             </div>
