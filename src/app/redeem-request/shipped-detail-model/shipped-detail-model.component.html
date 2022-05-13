@@ -42,6 +42,36 @@
           </mat-form-field> -->
         </div>
       </div>
+      <div class="option-field"  >
+        <div class="control-field">
+
+          <mat-form-field class="cs-input">
+            <input matInput placeholder="Payment Mode" name="payment_method" [(ngModel)] = "offer.payment_method" #payment_method="ngModel" >
+        </mat-form-field>
+
+       </div>
+      </div>
+      <div class="option-field"  >
+        <div class="control-field">
+
+          <mat-form-field class="cs-input">
+            <input matInput placeholder="Transaction Id " name="transaction_id" [(ngModel)] = "offer.transaction_id" #transaction_id="ngModel">
+        </mat-form-field> 
+          
+       </div>
+      </div>
+      
+      <div class="option-field"  >
+        <div class="control-field">
+
+          <mat-form-field class="cs-input">
+            <input matInput [matDatepicker]="picker1" placeholder="Payment Date" name="payment_date"   [(ngModel)]="offer.payment_date">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+          
+       </div>
+      </div>
       
       <div class="option-field mt15"  >
         <div class="control-field">
