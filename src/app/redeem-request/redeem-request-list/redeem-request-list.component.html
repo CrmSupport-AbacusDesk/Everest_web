@@ -67,7 +67,7 @@
         </div>
         
         
-        <div class="css-table "  >
+        <div class="css-table hr-scroll-table"  >
             <div class="sticky-header">
                 <div class="header">
                     <table>
@@ -79,7 +79,7 @@
                             <th class="w90">A/C Status</th>
                             <!-- <th class="w130">Sales Executive</th> -->
                             <th class="w100">Gift</th>
-                            <th>Offer-valid Upto</th>
+                            <th class="w200 ">Offer-valid Upto</th>
                             <th class="w80 text-right">Points Req.</th>
                             <!-- <th class="w80 text-center">Points Req. Type </th> -->
                             <!-- <th class="w130">Points Transfer Mobile No.</th> -->
@@ -169,7 +169,7 @@
                                     <i class="material-icons">search</i>
                                 </div>
                             </th>
-                            <th>
+                            <th class="w200">
                                 <div class="date-form">
                                     <i *ngIf="filter.end_date" class="material-icons" (click)="filter.end_date = '';getReedamList('') ">clear</i>
                                     
@@ -229,9 +229,9 @@
                                 </div>
                             </th>
                             <th class="w60">
-                                <div class="form-area"> 
+                                <!-- <div class="form-area"> 
                                     <button mat-button class="go" (click)="getReedamList('')">Go</button>
-                                </div>
+                                </div> -->
                             </th>
                             <!-- <th class="w120"></th> -->
                             <th class="w110">
@@ -267,11 +267,8 @@
             </div>
             
             
-        </div>
-    </div>
-    <div class="css-table" *ngIf="reedam.length">
-        <div class="table-container">
-            <div class="table-body">
+         <div class="table-container" *ngIf="reedam.length">
+             <div class="table-body">
                 <table> 
                     <tr *ngFor="let val of reedam; let i = index">
                         <td class="w30">{{ ( (current_page - 1 ) * 20 ) + ( i+1 ) }}</td>
@@ -295,7 +292,7 @@
                         <td class="w90 bg-change {{val.karigar_status}}">{{val.karigar_status}}</td>
                         <!-- <td class="w130 ">{{val.sales_name}}</td> -->
                         <td class="w100 ">{{val.gift_title}}</td>
-                        <td ><a  routerLink="/offer-detail"  routerLink="/offer-detail/{{val.offer_id}}" class="blue">{{val.title}} #{{val.offer_code}}</a> -{{val.end_date | date: 'dd MMM yyyy'}}</td>
+                        <td class="w200"><a  routerLink="/offer-detail"  routerLink="/offer-detail/{{val.offer_id}}" class="blue">{{val.title}} #{{val.offer_code}}</a> -{{val.end_date | date: 'dd MMM yyyy'}}</td>
                         <td class="w80 text-right">{{val.gift_points}}</td>
                         <!-- <td class="w80 text-center">
                             <img src="assets/paytm.png" *ngIf="val.payment_type == 'Paytm'" class="upi-img h18">
@@ -338,9 +335,11 @@
                         <td class="w110 ">{{val.payment_date | date: 'dd MMM yyyy'}}</td>
                         <td class="w150 ">{{val.transaction_id}}</td>
                     </tr>
-                </table>
-            </div>
-        </div>
+                 </table>
+              </div>
+           </div>
+       </div>
+
     </div>
     
     
