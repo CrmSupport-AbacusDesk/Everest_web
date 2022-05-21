@@ -235,7 +235,7 @@
                             </th>
                             <!-- <th class="w120"></th> -->
                             <th class="w110">
-                                <div class="form-area">
+                                <!-- <div class="form-area">
                                     <div class="slect">
                                         <mat-form-field>
                                             <mat-label>Search</mat-label>
@@ -247,6 +247,11 @@
                                             </mat-select>
                                         </mat-form-field>
                                     </div>
+                                </div> -->
+
+                                <div class="search-form">
+                                    <input type="text" placeholder="Payment method" [(ngModel)]="filter.payment_method"  (keyup.enter)="current_page = 1;getReedamList('')">
+                                    <i class="material-icons">search</i>
                                 </div>
                             </th>
                             <th class="w110">
@@ -332,7 +337,12 @@
                         </button></td> -->
 
                         <td class="w110 ">{{val.payment_method}}</td>
-                        <td class="w110 ">{{val.payment_date | date: 'dd MMM yyyy'}}</td>
+                        <td class="w110 ">
+                            <ng-container *ngIf="val.payment_date  != '0000-00-00' ">
+                            <div class="date-tr">
+                              <p>{{val.payment_date | date: 'dd MMM yyyy'}}</p>
+                            </div>
+                          </ng-container></td>
                         <td class="w150 ">{{val.transaction_id}}</td>
                     </tr>
                  </table>
