@@ -90,6 +90,7 @@ export class RedeemRequestListComponent implements OnInit {
         this.filter.date = this.filter.date  ? this.db.pickerFormat(this.filter.date) : '';
         this.filter.start_date = this.filter.start_date  ? this.db.pickerFormat(this.filter.start_date) : '';
         this.filter.end_date = this.filter.end_date  ? this.db.pickerFormat(this.filter.end_date) : '';
+        this.filter.payment_date = this.filter.payment_date  ? this.db.pickerFormat(this.filter.payment_date) : '';
         if( this.filter.date )this.filtering = true;
         this.filter.mode = 0;
         

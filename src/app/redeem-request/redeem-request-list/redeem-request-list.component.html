@@ -67,7 +67,7 @@
         </div>
         
         
-        <div class="css-table "  >
+        <div class="css-table hr-scroll-table"  >
             <div class="sticky-header">
                 <div class="header">
                     <table>
@@ -79,14 +79,17 @@
                             <th class="w90">A/C Status</th>
                             <!-- <th class="w130">Sales Executive</th> -->
                             <th class="w100">Gift</th>
-                            <th>Offer-valid Upto</th>
+                            <th class="w200 ">Offer-valid Upto</th>
                             <th class="w80 text-right">Points Req.</th>
                             <!-- <th class="w80 text-center">Points Req. Type </th> -->
                             <!-- <th class="w130">Points Transfer Mobile No.</th> -->
                             <th class="w85">Redeem Status</th>
                             <th class="w110 ">Gift Points Status</th>
                             <th class="w60">Action</th>
-                            <th class="w120"> Add Transfer Details</th>
+                            <!-- <th class="w120"> Add Transfer Details</th> -->
+                            <th class="w110">Payment Mode</th>
+                            <th class="w110">Transfer Date</th>
+                            <th class="w150">Transaction No.</th>
                         </tr>
                     </table>
                 </div>
@@ -166,7 +169,7 @@
                                     <i class="material-icons">search</i>
                                 </div>
                             </th>
-                            <th>
+                            <th class="w200">
                                 <div class="date-form">
                                     <i *ngIf="filter.end_date" class="material-icons" (click)="filter.end_date = '';getReedamList('') ">clear</i>
                                     
@@ -226,22 +229,51 @@
                                 </div>
                             </th>
                             <th class="w60">
-                                <div class="form-area"> 
+                                <!-- <div class="form-area"> 
                                     <button mat-button class="go" (click)="getReedamList('')">Go</button>
+                                </div> -->
+                            </th>
+                            <!-- <th class="w120"></th> -->
+                            <th class="w110">
+                                <!-- <div class="form-area">
+                                    <div class="slect">
+                                        <mat-form-field>
+                                            <mat-label>Search</mat-label>
+                                            <mat-select [(ngModel)]="filter.payment_method" name="payment_method" #payment_method="ngModel" (selectionChange)="getReedamList('')">
+                                                <mat-option value="">All</mat-option>
+                                                <mat-option value ="Paytm" >Paytm</mat-option>
+                                                <mat-option value ="UPI" >UPI</mat-option>
+                                                <mat-option value ="Bank" >Bank Trasnfer</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div> -->
+
+                                <div class="search-form">
+                                    <input type="text" placeholder="Payment method" [(ngModel)]="filter.payment_method"  (keyup.enter)="current_page = 1;getReedamList('')">
+                                    <i class="material-icons">search</i>
                                 </div>
                             </th>
-                            <th class="w120"></th>
+                            <th class="w110">
+                                <div class="date-form">
+                                    <mat-form-field >
+                                        <i *ngIf="filter.payment_date" class="material-icons" (click)="filter.payment_date = '';getReedamList('') ">clear</i>
+                                        <input placeholder="Date" [(ngModel)]="filter.payment_date"  name="payment_date" (click)="openDatePicker(picker5)" matInput (dateChange)="getReedamList('')" [matDatepicker]="picker5" readonly>
+                                        <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker5></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                            </th>
+                            <th class="w150"></th>
+
                         </tr>
                     </table>
                 </div>
             </div>
             
             
-        </div>
-    </div>
-    <div class="css-table" *ngIf="reedam.length">
-        <div class="table-container">
-            <div class="table-body">
+         <div class="table-container" *ngIf="reedam.length">
+             <div class="table-body">
                 <table> 
                     <tr *ngFor="let val of reedam; let i = index">
                         <td class="w30">{{ ( (current_page - 1 ) * 20 ) + ( i+1 ) }}</td>
@@ -265,7 +297,7 @@
                         <td class="w90 bg-change {{val.karigar_status}}">{{val.karigar_status}}</td>
                         <!-- <td class="w130 ">{{val.sales_name}}</td> -->
                         <td class="w100 ">{{val.gift_title}}</td>
-                        <td ><a  routerLink="/offer-detail"  routerLink="/offer-detail/{{val.offer_id}}" class="blue">{{val.title}} #{{val.offer_code}}</a> -{{val.end_date | date: 'dd MMM yyyy'}}</td>
+                        <td class="w200"><a  routerLink="/offer-detail"  routerLink="/offer-detail/{{val.offer_id}}" class="blue">{{val.title}} #{{val.offer_code}}</a> -{{val.end_date | date: 'dd MMM yyyy'}}</td>
                         <td class="w80 text-right">{{val.gift_points}}</td>
                         <!-- <td class="w80 text-center">
                             <img src="assets/paytm.png" *ngIf="val.payment_type == 'Paytm'" class="upi-img h18">
@@ -279,6 +311,10 @@
                                 <select class="{{val.receive_status}}"  [name]="'receive_status'+i" placeholder="Status" [(ngModel)]="val.receive_status" (change)="karigarsSatus(i, val.payment_type) " >
                                     <option  value="">Under Process</option>
                                     <option  value="Shipped" class="Shipped">Shipped</option>
+                                    <!-- <option  value="Transfer"  >Transfer</option> -->
+                                    <option  value="Received" class="Received">Received</option>
+
+
                                 </select> 
                             </div>
                             <div  *ngIf="val.receive_status != 'Received' && val.gift_status == 'Pending'   ">
@@ -294,15 +330,26 @@
                            
                         </td>  
                         <!-- *ngIf=" val.transaction_id == ''  " -->
-                        <td class="w120">  <button   style="background-color: #3e8181;
+                        <!-- <td class="w120">  <button   style="background-color: #3e8181;
                             color: white;" (click)="addTransferStatus(val.id)"  > 
-                        <!-- <i class="material-icons" style="font-size:18px;">add</i> -->
+                        <i class="material-icons" style="font-size:18px;">add</i>
                         <p>Add Transfer Detail</p>
-                        </button></td>
+                        </button></td> -->
+
+                        <td class="w110 ">{{val.payment_method}}</td>
+                        <td class="w110 ">
+                            <ng-container *ngIf="val.payment_date  != '0000-00-00' ">
+                            <div class="date-tr">
+                              <p>{{val.payment_date | date: 'dd MMM yyyy'}}</p>
+                            </div>
+                          </ng-container></td>
+                        <td class="w150 ">{{val.transaction_id}}</td>
                     </tr>
-                </table>
-            </div>
-        </div>
+                 </table>
+              </div>
+           </div>
+       </div>
+
     </div>
     
     

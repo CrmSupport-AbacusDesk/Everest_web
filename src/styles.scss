@@ -3873,6 +3873,15 @@ header
             }
         } 
     }
+
+    &.hr-scroll-table{
+        height: calc(100vh - 195px);
+        overflow: auto;
+        
+        .sticky-header, .table-container{
+            width: min-content;
+        }
+    }
     
     &.scroll-table
     {

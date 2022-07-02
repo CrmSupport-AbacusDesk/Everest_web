@@ -3,6 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef, MatDatepicker} from '@angular/material';
 import {DatabaseService} from '../../_services/DatabaseService';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DialogComponent} from '../../dialog/dialog.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-shipped-detail-model',
@@ -43,6 +44,8 @@ export class ShippedDetailModelComponent implements OnInit {
      
       this.offer.created_by=this.db.datauser.id;
       this.offer.estimated_date = this.offer.estimated_date  ? this.db.pickerFormat(this.offer.estimated_date) : '';
+  this.offer.payment_date = moment(this.offer.payment_date).format('YYYY-MM-DD');
+
       this.db.post_rqst( { 'shipped' : this.offer }, 'offer/shippedInfo')
       .subscribe( d => {
         this.savingData = false;

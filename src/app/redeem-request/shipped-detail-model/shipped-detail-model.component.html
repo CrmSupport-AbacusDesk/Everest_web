@@ -14,8 +14,8 @@
             <mat-label>Shipped Detail</mat-label>
             <mat-select  [(ngModel)] = "offer.shipped_type" #shipped_type="ngModel" name="shipped_type" required>
               <mat-option value ="Courier" >Courier</mat-option>
-              <mat-option value ="Hand Picked" >Hand Picked</mat-option>
-              <mat-option value ="Ship To Store" >Ship to Store</mat-option>
+              <mat-option value ="Bank Transfer" >Bank Transfer</mat-option>
+              <mat-option value ="Paytm" >Paytm</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -41,6 +41,36 @@
             <input matInput placeholder="Estimate Delivery Time" name="estimated_date" [(ngModel)] = "offer.estimated_date" #estimated_date="ngModel" >
           </mat-form-field> -->
         </div>
+      </div>
+      <div class="option-field"  >
+        <div class="control-field">
+
+          <mat-form-field class="cs-input">
+            <input matInput placeholder="Payment Mode" name="payment_method" [(ngModel)] = "offer.payment_method" #payment_method="ngModel" >
+        </mat-form-field>
+
+       </div>
+      </div>
+      <div class="option-field"  >
+        <div class="control-field">
+
+          <mat-form-field class="cs-input">
+            <input matInput placeholder="Transaction Id " name="transaction_id" [(ngModel)] = "offer.transaction_id" #transaction_id="ngModel">
+        </mat-form-field> 
+          
+       </div>
+      </div>
+      
+      <div class="option-field"  >
+        <div class="control-field">
+
+          <mat-form-field class="cs-input">
+            <input matInput [matDatepicker]="picker1" placeholder="Payment Date" name="payment_date"   [(ngModel)]="offer.payment_date">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+          
+       </div>
       </div>
       
       <div class="option-field mt15"  >
