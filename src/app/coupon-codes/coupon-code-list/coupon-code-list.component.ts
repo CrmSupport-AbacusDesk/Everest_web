@@ -136,6 +136,28 @@ export class CouponCodeListComponent implements OnInit {
         this.getcodeSummaryist('');
     }
     
+
+    openAssignManualCoupon(val,mode): void {
+        
+        const dialogRef = this.alrt.open(MastetDateFilterModelComponent, {
+            width: '500px',
+            data: { 
+                mode:mode,
+                value:val,
+                
+            }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log(`Dialog result: ${result}`);
+            if(result == undefined){
+                console.log(result);
+                this.getAvailableCoupanList("");
+            }
+        });
+    }
+
+
     getAvailableCoupanList(action) 
     {
         this.loading_list = true;
